@@ -8,18 +8,6 @@ import Image from '../../components/Image.astro';
 // Obter o parâmetro id da URL
 const { id } = Astro.params;
 
-// Função necessária para rotas dinâmicas no Astro
-export async function getStaticPaths() {
-  // Retorna um array com todos os possíveis valores para o parâmetro id
-  return [
-    { params: { id: 'kit-festa' } },
-    { params: { id: 'kit-festa-luxo' } },
-    { params: { id: 'convite-personalizado' } },
-    { params: { id: 'caixa-personalizada' } },
-    { params: { id: 'tag-personalizada' } }
-  ];
-}
-
 // Dados dos produtos personalizados
 const personalizadosProducts = [
   {
