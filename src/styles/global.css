@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Variáveis de cores personalizadas */
+:root {
+  --color-primary: #e57f9e;
+  --color-primary-light: #f9d5e5;
+  --color-primary-dark: #c25c7c;
+  --color-secondary: #f9d5e5;
+  --color-accent: #ffa5c3;
+}
+
+/* Estilos globais */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInFromBottom {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Classes de utilidade para animações */
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-slide-in {
+  animation: slideInFromBottom 0.8s ease-out forwards;
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+/* Transições */
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+/* Estilos para botões */
+.btn {
+  @apply py-2 px-4 rounded-lg font-medium transition-colors duration-300;
+}
+
+.btn-primary {
+  @apply bg-primary text-white hover:bg-pink-500;
+}
+
+.btn-secondary {
+  @apply bg-white text-primary border border-primary hover:bg-gray-100;
+}
+
+/* Estilos para cards */
+.card {
+  @apply bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300;
+}
+
+/* Estilos para seções */
+.section {
+  @apply py-16;
+}
+
+.section-title {
+  @apply text-3xl font-bold mb-8 text-center;
+}
+
+/* Container responsivo */
+.container-custom {
+  @apply container mx-auto px-4;
+}
+
+/* Estilos para imagens */
+.img-cover {
+  @apply object-cover w-full h-full;
+}
+
+/* Estilos para WhatsApp button flutuante */
+.whatsapp-float {
+  @apply fixed bottom-6 right-6 bg-green-500 text-white p-3 rounded-full shadow-lg z-50 hover:bg-green-600 transition-colors;
+}

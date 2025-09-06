@@ -1,0 +1,141 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import Image from '../../components/Image.astro';
+import WhatsAppButton from '../../components/WhatsAppButton.astro';
+
+// Dados dos produtos de crochê
+const crocheProducts = [
+  {
+    id: 'bolsa-croche-pequena',
+    title: 'Bolsa de Crochê Pequena',
+    description: 'Bolsa de crochê pequena feita à mão com linha de alta qualidade.',
+    price: 89.90,
+    imageUrl: '/images/bolsa-croche.svg', // Placeholder SVG
+    category: 'croche'
+  },
+  {
+    id: 'bolsa-croche-media',
+    title: 'Bolsa de Crochê Média',
+    description: 'Bolsa de crochê de tamanho médio, ideal para uso diário.',
+    price: 129.90,
+    imageUrl: '/images/bolsa-croche.svg', // Placeholder SVG
+    category: 'croche'
+  },
+  {
+    id: 'bolsa-croche-grande',
+    title: 'Bolsa de Crochê Grande',
+    description: 'Bolsa de crochê grande com espaço para todos os seus itens essenciais.',
+    price: 169.90,
+    imageUrl: '/images/bolsa-croche.svg', // Placeholder SVG
+    category: 'croche'
+  },
+  {
+    id: 'bolsa-praia-croche',
+    title: 'Bolsa de Praia em Crochê',
+    description: 'Bolsa de praia espaçosa feita em crochê com materiais resistentes à água.',
+    price: 149.90,
+    imageUrl: '/images/bolsa-croche.svg', // Placeholder SVG
+    category: 'croche'
+  },
+  {
+    id: 'necessaire-croche',
+    title: 'Necessaire em Crochê',
+    description: 'Necessaire delicada feita em crochê para guardar seus itens pessoais.',
+    price: 59.90,
+    imageUrl: '/images/placeholder.svg', // Placeholder SVG
+    category: 'croche'
+  },
+  {
+    id: 'porta-moedas-croche',
+    title: 'Porta-moedas em Crochê',
+    description: 'Pequeno porta-moedas em crochê, prático e elegante.',
+    price: 39.90,
+    imageUrl: '/images/porta-moedas-croche.jpg', // Placeholder
+    category: 'croche'
+  }
+];
+---
+
+<Layout title="Crochê | Maarte Ateliê" description="Produtos em crochê feitos à mão com amor e dedicação - Maarte Ateliê">
+  <Navbar />
+  
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-rose-100 to-pink-100 py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Produtos em Crochê</h1>
+      <p class="text-xl text-gray-700 max-w-2xl mx-auto">
+        Bolsas e acessórios em crochê feitos à mão com materiais de alta qualidade.
+      </p>
+    </div>
+  </section>
+  
+  <!-- Products Grid -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {crocheProducts.map(product => (
+          <ProductCard 
+            id={product.id}
+            title={product.title}
+            description={product.description}
+            price={product.price}
+            imageUrl={product.imageUrl}
+            category={product.category}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Informações sobre produtos em crochê -->
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center gap-8">
+        <div class="md:w-1/2">
+          <h2 class="text-3xl font-bold mb-4">Produtos Artesanais</h2>
+          <p class="text-gray-700 mb-4">
+            Todos os nossos produtos em crochê são feitos à mão, com muito carinho e dedicação. Utilizamos materiais de alta qualidade para garantir durabilidade e beleza às peças.
+          </p>
+          <p class="text-gray-700 mb-6">
+            Por serem produtos artesanais, cada peça é única e pode apresentar pequenas variações de cor e acabamento, o que torna seu produto ainda mais especial.
+          </p>
+        </div>
+        <div class="md:w-1/2">
+          <div class="bg-white p-2 rounded-lg shadow-md">
+            <!-- Placeholder para imagem -->
+            <div class="bg-rose-100 h-64 rounded flex items-center justify-center">
+              <span class="text-6xl">🧶</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-4">Encomendas Personalizadas</h2>
+      <p class="text-xl mb-8 max-w-2xl mx-auto">
+        Deseja um produto em crochê com cores ou tamanhos específicos? Entre em contato conosco para fazer uma encomenda personalizada.
+      </p>
+      <a 
+        href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20encomendar%20um%20produto%20em%20crochê%20personalizado%20do%20Maarte%20Ateliê."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block bg-primary hover:bg-pink-500 text-white font-medium py-3 px-6 rounded-lg transition-colors"
+      >
+        Fazer Encomenda pelo WhatsApp
+      </a>
+    </div>
+  </section>
+  
+  <Footer />
+</Layout>
+
+<style>
+  /* Adicione estilos específicos da página aqui, se necessário */
+</style>

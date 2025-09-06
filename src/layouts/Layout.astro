@@ -1,22 +1,46 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title ? `${title} | Maarte Ateliê` : 'Maarte Ateliê'}</title>
+		<meta name="description" content={description || 'Maarte Ateliê - Produtos personalizados e em crochê'} />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 	</head>
-	<body>
+	<body class="min-h-screen bg-white font-poppins">
 		<slot />
 	</body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
+<style is:global>
+	:root {
+		--primary-color: #f472b6; /* pink-400 */
+		--secondary-color: #fda4af; /* rose-300 */
+		--accent-color: #f9a8d4; /* pink-300 */
+		--text-color: #1f2937; /* gray-800 */
+		--background-color: #ffffff;
 	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
+	@tailwind base;
+	@tailwind components;
+	@tailwind utilities;
 </style>

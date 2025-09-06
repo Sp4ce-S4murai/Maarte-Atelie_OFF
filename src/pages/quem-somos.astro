@@ -1,0 +1,129 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import Image from '../components/Image.astro';
+---
+
+<Layout title="Quem Somos | Maarte Ateliê" description="Conheça a história e os valores do Maarte Ateliê - Produtos personalizados e em crochê feitos com amor">
+  <Navbar />
+  
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-pink-100 to-rose-100 py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Quem Somos</h1>
+      <p class="text-xl text-gray-700 max-w-2xl mx-auto">
+        Conheça a história e os valores por trás do Maarte Ateliê.
+      </p>
+    </div>
+  </section>
+  
+  <!-- Nossa História -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center gap-12">
+        <div class="md:w-1/2">
+          <div class="bg-white p-3 rounded-lg shadow-md">
+            <!-- Imagem otimizada -->
+            <div class="bg-pink-100 h-80 rounded flex items-center justify-center">
+              <Image 
+                src="/images/placeholder.svg" 
+                alt="Nossa História" 
+                width={500} 
+                height={400} 
+                class="w-full h-full object-contain"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="md:w-1/2">
+          <h2 class="text-3xl font-bold mb-6">Nossa História</h2>
+          <p class="text-gray-700 mb-4">
+            O Maarte Ateliê nasceu da paixão por criar peças únicas e personalizadas. Tudo começou como um hobby, criando pequenos itens decorativos para amigos e familiares, mas logo se transformou em um negócio movido pelo amor ao artesanato e à criatividade.
+          </p>
+          <p class="text-gray-700 mb-4">
+            Com o tempo, nossa dedicação e compromisso com a qualidade nos permitiram expandir nosso catálogo de produtos, sempre mantendo o cuidado artesanal em cada peça que produzimos.
+          </p>
+          <p class="text-gray-700">
+            Hoje, temos orgulho de oferecer produtos personalizados para festas e eventos, além de peças em crochê feitas com carinho e atenção aos detalhes, para tornar momentos especiais ainda mais memoráveis.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Nossos Valores -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">Nossos Valores</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Valor 1 -->
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <div class="text-primary text-4xl mb-4 flex justify-center">
+            <span>❤️</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-center">Amor pelo Artesanato</h3>
+          <p class="text-gray-700 text-center">
+            Cada produto é feito com amor e dedicação, refletindo nossa paixão pelo trabalho artesanal e pela criação de peças únicas.
+          </p>
+        </div>
+        
+        <!-- Valor 2 -->
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <div class="text-primary text-4xl mb-4 flex justify-center">
+            <span>✨</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-center">Qualidade e Atenção aos Detalhes</h3>
+          <p class="text-gray-700 text-center">
+            Utilizamos materiais de alta qualidade e prestamos atenção a cada detalhe para garantir produtos duráveis e bonitos.
+          </p>
+        </div>
+        
+        <!-- Valor 3 -->
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <div class="text-primary text-4xl mb-4 flex justify-center">
+            <span>🌱</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-center">Sustentabilidade</h3>
+          <p class="text-gray-700 text-center">
+            Buscamos práticas sustentáveis em nossa produção, minimizando desperdícios e escolhendo materiais ecologicamente responsáveis sempre que possível.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Nossa Missão -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-6">Nossa Missão</h2>
+      <p class="text-xl text-gray-700 max-w-3xl mx-auto mb-8">
+        Criar produtos artesanais de qualidade que tragam alegria e tornem momentos especiais ainda mais memoráveis, sempre valorizando o trabalho manual e a personalização.
+      </p>
+      <div class="w-24 h-1 bg-primary mx-auto"></div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <section class="py-16 bg-gradient-to-r from-green-400 to-green-500 text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-4">Vamos Conversar?</h2>
+      <p class="text-xl mb-8 max-w-2xl mx-auto">
+        Tem alguma dúvida ou quer fazer um pedido personalizado? Entre em contato conosco pelo WhatsApp.
+      </p>
+      <WhatsAppButton 
+        phoneNumber="5511999999999" 
+        message="Olá! Gostaria de saber mais sobre o Maarte Ateliê." 
+        className="bg-white text-green-500 hover:bg-gray-100 font-bold text-lg py-3 px-8"
+      />
+    </div>
+  </section>
+  
+  <Footer />
+</Layout>
+
+<style>
+  /* Adicione estilos específicos da página aqui, se necessário */
+</style>

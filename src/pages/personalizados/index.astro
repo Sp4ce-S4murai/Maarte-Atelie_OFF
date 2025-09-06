@@ -1,0 +1,116 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import Image from '../../components/Image.astro';
+import WhatsAppButton from '../../components/WhatsAppButton.astro';
+
+// Dados dos produtos personalizados
+const personalizadosProducts = [
+  {
+    id: 'kit-festa',
+    title: 'Kit Festa',
+    description: 'Kit completo para festas com itens personalizados para decoração e lembrancinhas.',
+    price: 150.00,
+    imageUrl: '/images/kit-festa.svg', // Placeholder SVG
+    category: 'personalizados'
+  },
+  {
+    id: 'kit-festa-luxo',
+    title: 'Kit Festa Luxo',
+    description: 'Kit festa com acabamentos premium e itens adicionais para uma decoração sofisticada.',
+    price: 250.00,
+    imageUrl: '/images/kit-festa.svg', // Placeholder SVG
+    category: 'personalizados'
+  },
+  {
+    id: 'kit-festa-premium',
+    title: 'Kit Festa Premium',
+    description: 'Nossa opção mais completa de kit festa com itens exclusivos e personalizações especiais.',
+    price: 350.00,
+    imageUrl: '/images/kit-festa.svg', // Placeholder SVG
+    category: 'personalizados'
+  },
+  {
+    id: 'caixas-personalizadas',
+    title: 'Caixas Personalizadas',
+    description: 'Caixas decorativas personalizadas para presentes ou lembrancinhas.',
+    price: 45.00,
+    imageUrl: '/images/placeholder.svg', // Placeholder SVG
+    category: 'personalizados'
+  },
+  {
+    id: 'convites-personalizados',
+    title: 'Convites Personalizados',
+    description: 'Convites feitos sob medida para seu evento com design exclusivo.',
+    price: 3.50,
+    imageUrl: '/images/placeholder.svg', // Placeholder SVG
+    category: 'personalizados'
+  },
+  {
+    id: 'toppers-personalizados',
+    title: 'Toppers Personalizados',
+    description: 'Toppers decorativos para bolos e cupcakes com temas variados.',
+    price: 25.00,
+    imageUrl: '/images/toppers-personalizados.jpg', // Placeholder
+    category: 'personalizados'
+  }
+];
+---
+
+<Layout title="Personalizados | Maarte Ateliê" description="Produtos personalizados para festas e eventos especiais - Maarte Ateliê">
+  <Navbar />
+  
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-pink-100 to-rose-100 py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Produtos Personalizados</h1>
+      <p class="text-xl text-gray-700 max-w-2xl mx-auto">
+        Kits e itens personalizados para tornar sua festa ou evento ainda mais especial.
+      </p>
+    </div>
+  </section>
+  
+  <!-- Products Grid -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {personalizadosProducts.map(product => (
+          <ProductCard 
+            id={product.id}
+            title={product.title}
+            description={product.description}
+            price={product.price}
+            imageUrl={product.imageUrl}
+            category={product.category}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-4">Não encontrou o que procura?</h2>
+      <p class="text-xl mb-8 max-w-2xl mx-auto">
+        Podemos criar produtos personalizados especialmente para você. Entre em contato conosco para discutir suas ideias.
+      </p>
+      <a 
+        href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20um%20produto%20personalizado%20do%20Maarte%20Ateliê."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block bg-primary hover:bg-pink-500 text-white font-medium py-3 px-6 rounded-lg transition-colors"
+      >
+        Fale Conosco pelo WhatsApp
+      </a>
+    </div>
+  </section>
+  
+  <Footer />
+</Layout>
+
+<style>
+  /* Adicione estilos específicos da página aqui, se necessário */
+</style>

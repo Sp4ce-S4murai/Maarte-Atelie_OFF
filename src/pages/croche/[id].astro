@@ -1,0 +1,318 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppButton from '../../components/WhatsAppButton.astro';
+import Image from '../../components/Image.astro';
+
+// Obter o parâmetro id da URL
+const { id } = Astro.params;
+
+// Função necessária para rotas dinâmicas no Astro
+export async function getStaticPaths() {
+  // Retorna um array com todos os possíveis valores para o parâmetro id
+  return [
+    { params: { id: 'bolsa-croche-pequena' } },
+    { params: { id: 'bolsa-croche-media' } },
+    { params: { id: 'bolsa-croche-grande' } },
+    { params: { id: 'amigurumi-pequeno' } },
+    { params: { id: 'amigurumi-medio' } }
+  ];
+}
+
+// Dados dos produtos de crochê
+const crocheProducts = [
+  {
+    id: 'bolsa-croche-pequena',
+    title: 'Bolsa de Crochê Pequena',
+    description: 'Bolsa de crochê pequena feita à mão com linha de alta qualidade.',
+    longDescription: 'Nossa bolsa de crochê pequena é perfeita para ocasiões especiais ou uso diário. Feita à mão com linhas de alta qualidade, cada peça é única e possui acabamento impecável. O tamanho compacto é ideal para carregar seus itens essenciais como celular, carteira e chaves. Disponível em diversas cores, esta bolsa adiciona um toque artesanal e elegante ao seu visual. Por ser um produto artesanal, pequenas variações de tamanho e acabamento podem ocorrer, tornando sua bolsa verdadeiramente única.',
+    price: 89.90,
+    imageUrl: '/images/bolsa-croche.svg', // Placeholder SVG
+    category: 'croche',
+    specifications: [
+      { name: 'Dimensões', value: '20cm x 15cm x 5cm (aproximadamente)' },
+      { name: 'Material', value: 'Linha de algodão mercerizado' },
+      { name: 'Cores Disponíveis', value: 'Bege, Preto, Azul Marinho, Rosa, Verde Oliva' },
+      { name: 'Forro', value: 'Tecido 100% algodão' },
+      { name: 'Alça', value: 'Alça de mão em crochê' },
+      { name: 'Fechamento', value: 'Botão magnético' },
+      { name: 'Prazo de Produção', value: '7 dias úteis' }
+    ],
+    images: [
+      '/images/bolsa-croche.svg',
+      '/images/bolsa-croche.svg',
+      '/images/bolsa-croche.svg'
+    ],
+    careInstructions: 'Lavar à mão com água fria e sabão neutro. Não torcer. Secar à sombra em superfície plana.'
+  },
+  {
+    id: 'bolsa-croche-media',
+    title: 'Bolsa de Crochê Média',
+    description: 'Bolsa de crochê de tamanho médio, ideal para uso diário.',
+    longDescription: 'Nossa bolsa de crochê média é versátil e funcional, perfeita para o dia a dia. Confeccionada artesanalmente com linhas de alta qualidade, oferece espaço suficiente para seus itens pessoais como celular, carteira, chaves, maquiagem e outros pequenos objetos. O design elegante combina com diversos estilos e ocasiões, desde um dia casual até um evento mais sofisticado. Disponível em várias cores, esta bolsa é um acessório prático que adiciona um toque artesanal ao seu visual. Cada peça é feita à mão, o que pode resultar em pequenas variações que tornam sua bolsa única.',
+    price: 129.90,
+    imageUrl: '/images/bolsa-croche.svg', // Placeholder SVG
+    category: 'croche',
+    specifications: [
+      { name: 'Dimensões', value: '30cm x 20cm x 8cm (aproximadamente)' },
+      { name: 'Material', value: 'Linha de algodão mercerizado' },
+      { name: 'Cores Disponíveis', value: 'Bege, Preto, Azul Marinho, Rosa, Verde Oliva, Terracota' },
+      { name: 'Forro', value: 'Tecido 100% algodão com bolso interno' },
+      { name: 'Alça', value: 'Alça de ombro ajustável em crochê' },
+      { name: 'Fechamento', value: 'Zíper' },
+      { name: 'Prazo de Produção', value: '10 dias úteis' }
+    ],
+    images: [
+      '/images/bolsa-croche-media-1.jpg',
+      '/images/bolsa-croche-media-2.jpg',
+      '/images/bolsa-croche-media-3.jpg'
+    ],
+    careInstructions: 'Lavar à mão com água fria e sabão neutro. Não torcer. Secar à sombra em superfície plana.'
+  },
+  {
+    id: 'bolsa-croche-grande',
+    title: 'Bolsa de Crochê Grande',
+    description: 'Bolsa de crochê grande com espaço para todos os seus itens essenciais.',
+    longDescription: 'Nossa bolsa de crochê grande é espaçosa e funcional, perfeita para quem precisa carregar muitos itens no dia a dia. Confeccionada artesanalmente com linhas resistentes de alta qualidade, esta bolsa oferece amplo espaço interno para acomodar livros, notebook pequeno, necessaire, carteira, celular e outros objetos pessoais. O design elegante e atemporal se adapta a diversos estilos, enquanto o acabamento cuidadoso garante durabilidade e beleza. Disponível em cores neutras que combinam com qualquer look, esta bolsa é um acessório versátil que une funcionalidade e estilo artesanal. Por ser feita à mão, cada peça possui características únicas que a tornam especial.',
+    price: 169.90,
+    imageUrl: '/images/bolsa-croche-grande.jpg', // Placeholder
+    category: 'croche',
+    specifications: [
+      { name: 'Dimensões', value: '40cm x 30cm x 12cm (aproximadamente)' },
+      { name: 'Material', value: 'Linha de algodão mercerizado reforçada' },
+      { name: 'Cores Disponíveis', value: 'Bege, Preto, Azul Marinho, Cinza' },
+      { name: 'Forro', value: 'Tecido 100% algodão com múltiplos bolsos internos' },
+      { name: 'Alça', value: 'Alças de ombro reforçadas em crochê' },
+      { name: 'Fechamento', value: 'Zíper e botão magnético' },
+      { name: 'Prazo de Produção', value: '15 dias úteis' }
+    ],
+    images: [
+      '/images/bolsa-croche-grande-1.jpg',
+      '/images/bolsa-croche-grande-2.jpg',
+      '/images/bolsa-croche-grande-3.jpg'
+    ],
+    careInstructions: 'Lavar à mão com água fria e sabão neutro. Não torcer. Secar à sombra em superfície plana. Evitar sobrecarga para manter a forma da bolsa.'
+  },
+  {
+    id: 'bolsa-praia-croche',
+    title: 'Bolsa de Praia em Crochê',
+    description: 'Bolsa de praia espaçosa feita em crochê com materiais resistentes à água.',
+    longDescription: 'Nossa bolsa de praia em crochê é o acessório perfeito para dias de sol e mar. Espaçosa e estilosa, foi desenvolvida especialmente para uso na praia ou piscina, com materiais resistentes à umidade e de secagem rápida. Comporta toalhas, protetor solar, livros, garrafas de água e todos os seus itens essenciais para um dia de lazer. O design exclusivo com padrões geométricos e cores vibrantes adiciona um toque de estilo ao seu visual praiano. A alça confortável permite carregar facilmente, mesmo quando a bolsa está cheia. Uma combinação perfeita de funcionalidade, durabilidade e beleza artesanal para acompanhar seus momentos de diversão ao ar livre.',
+    price: 149.90,
+    imageUrl: '/images/bolsa-praia-croche.jpg', // Placeholder
+    category: 'croche',
+    specifications: [
+      { name: 'Dimensões', value: '45cm x 35cm x 15cm (aproximadamente)' },
+      { name: 'Material', value: 'Fio de polipropileno resistente à água' },
+      { name: 'Cores Disponíveis', value: 'Azul Turquesa, Coral, Amarelo, Listrado Multicolorido' },
+      { name: 'Forro', value: 'Tecido impermeável com bolso interno com zíper' },
+      { name: 'Alça', value: 'Alças de ombro reforçadas em corda náutica' },
+      { name: 'Fechamento', value: 'Botão de madeira' },
+      { name: 'Prazo de Produção', value: '10 dias úteis' }
+    ],
+    images: [
+      '/images/bolsa-praia-croche-1.jpg',
+      '/images/bolsa-praia-croche-2.jpg',
+      '/images/bolsa-praia-croche-3.jpg'
+    ],
+    careInstructions: 'Lavar à mão com água fria. Não usar alvejante. Secar à sombra. Remover areia sacudindo gentilmente após o uso.'
+  },
+  {
+    id: 'necessaire-croche',
+    title: 'Necessaire em Crochê',
+    description: 'Necessaire delicada feita em crochê para guardar seus itens pessoais.',
+    longDescription: 'Nossa necessaire em crochê é uma peça delicada e funcional para organizar seus itens de maquiagem, cosméticos ou pequenos objetos pessoais. Confeccionada artesanalmente com linhas de alta qualidade e forro impermeável, protege seus pertences com estilo. O tamanho compacto é perfeito para levar na bolsa ou para viagens, mantendo seus itens essenciais sempre organizados e acessíveis. Disponível em diversas cores, esta necessaire combina praticidade com o charme do trabalho manual, sendo também uma ótima opção de presente. Cada peça é única, com pequenos detalhes que refletem seu caráter artesanal.',
+    price: 59.90,
+    imageUrl: '/images/necessaire-croche.jpg', // Placeholder
+    category: 'croche',
+    specifications: [
+      { name: 'Dimensões', value: '20cm x 12cm x 8cm (aproximadamente)' },
+      { name: 'Material', value: 'Linha de algodão mercerizado' },
+      { name: 'Cores Disponíveis', value: 'Rosa, Azul Claro, Verde Menta, Lilás, Bege' },
+      { name: 'Forro', value: 'Tecido impermeável lavável' },
+      { name: 'Fechamento', value: 'Zíper' },
+      { name: 'Prazo de Produção', value: '5 dias úteis' }
+    ],
+    images: [
+      '/images/necessaire-croche-1.jpg',
+      '/images/necessaire-croche-2.jpg',
+      '/images/necessaire-croche-3.jpg'
+    ],
+    careInstructions: 'Lavar à mão com água fria e sabão neutro. Não torcer. Secar à sombra em superfície plana.'
+  },
+  {
+    id: 'porta-moedas-croche',
+    title: 'Porta-moedas em Crochê',
+    description: 'Pequeno porta-moedas em crochê, prático e elegante.',
+    longDescription: 'Nosso porta-moedas em crochê é uma peça pequena e charmosa, perfeita para guardar moedas, cartões ou pequenos objetos. Confeccionado artesanalmente com linhas de alta qualidade e forro interno, combina praticidade com o charme do trabalho manual. Seu tamanho compacto permite que seja facilmente carregado no bolso ou dentro de outra bolsa, mantendo seus pequenos itens organizados e acessíveis. Disponível em diversas cores, este porta-moedas é também uma ótima opção de lembrancinha ou presente para ocasiões especiais. Cada peça possui acabamento cuidadoso e detalhes únicos que só o trabalho artesanal proporciona.',
+    price: 39.90,
+    imageUrl: '/images/porta-moedas-croche.jpg', // Placeholder
+    category: 'croche',
+    specifications: [
+      { name: 'Dimensões', value: '10cm x 8cm (aproximadamente)' },
+      { name: 'Material', value: 'Linha de algodão mercerizado fina' },
+      { name: 'Cores Disponíveis', value: 'Rosa, Azul, Verde, Amarelo, Vermelho, Preto' },
+      { name: 'Forro', value: 'Tecido 100% algodão' },
+      { name: 'Fechamento', value: 'Botão de pressão' },
+      { name: 'Prazo de Produção', value: '3 dias úteis' }
+    ],
+    images: [
+      '/images/porta-moedas-croche-1.jpg',
+      '/images/porta-moedas-croche-2.jpg',
+      '/images/porta-moedas-croche-3.jpg'
+    ],
+    careInstructions: 'Lavar à mão com água fria e sabão neutro. Não torcer. Secar à sombra em superfície plana.'
+  }
+];
+
+// Encontrar o produto com base no ID da URL
+const product = crocheProducts.find(p => p.id === id);
+
+// Se o produto não for encontrado, redirecionar para a página de crochê
+if (!product) {
+  return Astro.redirect('/croche');
+}
+
+// Formatar o preço para o formato brasileiro (R$ 0,00)
+const formattedPrice = new Intl.NumberFormat('pt-BR', {
+  style: 'currency',
+  currency: 'BRL'
+}).format(product.price);
+---
+
+<Layout title={`${product.title} | Maarte Ateliê`} description={product.description}>
+  <Navbar />
+  
+  <!-- Breadcrumb -->
+  <div class="bg-gray-100 py-2">
+    <div class="container mx-auto px-4">
+      <nav class="flex text-sm">
+        <a href="/" class="text-gray-500 hover:text-primary">Início</a>
+        <span class="mx-2 text-gray-500">/</span>
+        <a href="/croche" class="text-gray-500 hover:text-primary">Crochê</a>
+        <span class="mx-2 text-gray-500">/</span>
+        <span class="text-primary font-medium">{product.title}</span>
+      </nav>
+    </div>
+  </div>
+  
+  <!-- Product Details -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col lg:flex-row gap-12">
+        <!-- Product Images -->
+        <div class="lg:w-1/2">
+          <div class="bg-gray-100 rounded-lg overflow-hidden mb-4">
+            <!-- Imagem principal (placeholder) -->
+            <div class="aspect-square bg-rose-100 flex items-center justify-center">
+              <span class="text-8xl">🧶</span>
+            </div>
+          </div>
+          
+          <!-- Thumbnails -->
+          <div class="grid grid-cols-3 gap-2">
+            {product.images.map((image, index) => (
+              <div class="aspect-square bg-gray-100 rounded cursor-pointer hover:opacity-80 transition-opacity">
+                <!-- Placeholder para miniaturas -->
+                <div class="w-full h-full bg-rose-50 flex items-center justify-center">
+                  <span class="text-2xl">{index + 1}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <!-- Product Info -->
+        <div class="lg:w-1/2">
+          <h1 class="text-3xl font-bold mb-2">{product.title}</h1>
+          <p class="text-2xl text-primary font-bold mb-4">{formattedPrice}</p>
+          <div class="mb-6">
+            <p class="text-gray-700">{product.longDescription}</p>
+          </div>
+          
+          <!-- Specifications -->
+          <div class="mb-6">
+            <h3 class="text-lg font-bold mb-3">Especificações:</h3>
+            <div class="space-y-2">
+              {product.specifications.map(spec => (
+                <div class="flex flex-col sm:flex-row">
+                  <span class="font-medium w-40">{spec.name}:</span>
+                  <span class="text-gray-700">{spec.value}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <!-- Care Instructions -->
+          <div class="mb-8">
+            <h3 class="text-lg font-bold mb-2">Instruções de Cuidado:</h3>
+            <p class="text-gray-700">{product.careInstructions}</p>
+          </div>
+          
+          <!-- WhatsApp Button -->
+          <div>
+            <WhatsAppButton 
+              phoneNumber="5511999999999" 
+              message={`Olá! Gostaria de saber mais sobre o produto ${product.title} do Maarte Ateliê.`} 
+              className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg w-full sm:w-auto flex items-center justify-center"
+            />
+            <p class="text-sm text-gray-500 mt-2">Entre em contato para mais informações e encomendas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Related Products -->
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-8">Você também pode gostar</h2>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {crocheProducts
+          .filter(p => p.id !== product.id)
+          .slice(0, 4)
+          .map(relatedProduct => (
+            <a href={`/croche/${relatedProduct.id}`} class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+              <div class="aspect-square bg-rose-100 flex items-center justify-center">
+                <!-- Placeholder para imagem -->
+                <span class="text-4xl">🧶</span>
+              </div>
+              <div class="p-4">
+                <h3 class="font-bold">{relatedProduct.title}</h3>
+                <p class="text-primary font-medium mt-1">
+                  {new Intl.NumberFormat('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL'
+                  }).format(relatedProduct.price)}
+                </p>
+              </div>
+            </a>
+          ))}
+      </div>
+    </div>
+  </section>
+  
+  <Footer />
+</Layout>
+
+<style>
+  /* Adicione estilos específicos da página aqui, se necessário */
+</style>
+
+<script>
+  // Script para manipulação de imagens (trocar imagem principal ao clicar nas miniaturas)
+  document.addEventListener('DOMContentLoaded', () => {
+    const thumbnails = document.querySelectorAll('.thumbnails img');
+    const mainImage = document.querySelector('.main-image img');
+    
+    if (thumbnails.length > 0 && mainImage) {
+      thumbnails.forEach(thumb => {
+        thumb.addEventListener('click', () => {
+          mainImage.src = thumb.src;
+        });
+      });
+    }
+  });
+</script>
