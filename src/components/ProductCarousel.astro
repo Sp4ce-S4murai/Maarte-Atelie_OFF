@@ -1,0 +1,260 @@
+---
+import ProductCard from './ProductCard.astro';
+
+// Função para embaralhar array (Fisher-Yates shuffle)
+function shuffleArray(array) {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
+// Dados reais dos produtos de crochê
+const crocheProducts = [
+  {
+    id: 'bolsa-croche-pequena',
+    title: 'Bolsa de Crochê Pequena',
+    description: 'Bolsa de crochê pequena feita à mão com linha de alta qualidade.',
+    price: 89.90,
+    imageUrl: '/images/bolsa-croche-pequena.jpg',
+    category: 'croche'
+  },
+  {
+    id: 'bolsa-croche-media',
+    title: 'Bolsa de Crochê Média',
+    description: 'Bolsa de crochê de tamanho médio, ideal para uso diário.',
+    price: 129.90,
+    imageUrl: '/images/bolsa-croche-media.jpg',
+    category: 'croche'
+  },
+  {
+    id: 'bolsa-croche-grande',
+    title: 'Bolsa de Crochê Grande',
+    description: 'Bolsa de crochê grande com espaço para todos os seus itens essenciais.',
+    price: 169.90,
+    imageUrl: '/images/bolsa-croche-grande.jpg',
+    category: 'croche'
+  },
+  {
+    id: 'bolsa-praia-croche',
+    title: 'Bolsa de Praia em Crochê',
+    description: 'Bolsa de praia espaçosa feita em crochê com materiais resistentes à água.',
+    price: 149.90,
+    imageUrl: '/images/bolsa-praia-croche.jpg',
+    category: 'croche'
+  },
+  {
+    id: 'necessaire-croche',
+    title: 'Necessaire em Crochê',
+    description: 'Necessaire delicada feita em crochê para guardar seus itens pessoais.',
+    price: 59.90,
+    imageUrl: '/images/necessaire-croche.jpg',
+    category: 'croche'
+  },
+  {
+    id: 'porta-moedas-croche',
+    title: 'Porta-moedas em Crochê',
+    description: 'Pequeno porta-moedas em crochê, prático e elegante.',
+    price: 39.90,
+    imageUrl: '/images/porta-moedas-croche.jpg',
+    category: 'croche'
+  }
+];
+
+// Dados reais dos produtos personalizados
+const personalizadosProducts = [
+  {
+    id: 'kit-festa',
+    title: 'Kit Festa',
+    description: 'Kit completo para festas com itens personalizados para decoração e lembrancinhas.',
+    price: 150.00,
+    imageUrl: '/images/kit-festa.jpg',
+    category: 'personalizados'
+  },
+  {
+    id: 'kit-festa-luxo',
+    title: 'Kit Festa Luxo',
+    description: 'Kit festa com acabamentos premium e itens adicionais para uma decoração sofisticada.',
+    price: 250.00,
+    imageUrl: '/images/kit-festa-luxo.jpg',
+    category: 'personalizados'
+  },
+  {
+    id: 'kit-festa-premium',
+    title: 'Kit Festa Premium',
+    description: 'Nossa opção mais completa de kit festa com itens exclusivos e personalizações especiais.',
+    price: 350.00,
+    imageUrl: '/images/kit-festa-premium.jpg',
+    category: 'personalizados'
+  },
+  {
+    id: 'caixas-personalizadas',
+    title: 'Caixas Personalizadas',
+    description: 'Caixas decorativas personalizadas para presentes ou lembrancinhas.',
+    price: 45.00,
+    imageUrl: '/images/caixas-personalizadas.jpg',
+    category: 'personalizados'
+  },
+  {
+    id: 'convites-personalizados',
+    title: 'Convites Personalizados',
+    description: 'Convites feitos sob medida para seu evento com design exclusivo.',
+    price: 3.50,
+    imageUrl: '/images/convites-personalizadas.jpg',
+    category: 'personalizados'
+  },
+  {
+    id: 'toppers-personalizados',
+    title: 'Toppers Personalizados',
+    description: 'Toppers decorativos para bolos e cupcakes com temas variados.',
+    price: 25.00,
+    imageUrl: '/images/toppers-personalizados.jpg',
+    category: 'personalizados'
+  }
+];
+
+// Combinar todos os produtos e selecionar 6 aleatórios
+const allProducts = [...crocheProducts, ...personalizadosProducts];
+const randomProducts = shuffleArray(allProducts).slice(0, 6);
+---
+
+<div class="product-carousel-container">
+  <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">Produtos em Destaque</h2>
+  
+  <div class="carousel-wrapper relative overflow-hidden">
+    <div 
+      class="carousel-track flex transition-transform duration-500 ease-in-out" 
+      id="carouselTrack"
+    >
+      {randomProducts.map((product, index) => (
+        <div 
+          class="carousel-slide min-w-full md:min-w-1/2 lg:min-w-1/3 px-4" 
+          key={product.id}
+        >
+          <a 
+            href={`/${product.category}/${product.id}`}
+            class="block bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden group"
+          >
+            <!-- Imagem do produto -->
+            <div class="aspect-square bg-rose-100 flex items-center justify-center relative overflow-hidden">
+              <span class="text-4xl group-hover:scale-110 transition-transform duration-300">🧶</span>
+              <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300"></div>
+            </div>
+            
+            <!-- Informações do produto -->
+            <div class="p-4">
+              <h3 class="font-semibold text-gray-800 mb-2 group-hover:text-primary transition-colors">
+                {product.title}
+              </h3>
+              <p class="text-gray-600 text-sm mb-3 line-clamp-2">
+                {product.description}
+              </p>
+              <div class="flex items-center justify-between">
+                <span class="text-primary font-bold">
+                  {new Intl.NumberFormat('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL'
+                  }).format(product.price)}
+                </span>
+                <span class="text-xs text-gray-500 capitalize">
+                  {product.category}
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+  
+  <!-- Controles de navegação -->
+  <div class="flex justify-center mt-6 space-x-4">
+    <button 
+      class="carousel-prev bg-primary text-white p-2 rounded-full hover:bg-pink-600 transition-colors"
+      onclick="moveCarousel(-1)"
+      aria-label="Produto anterior"
+    >
+      ←
+    </button>
+    <button 
+      class="carousel-next bg-primary text-white p-2 rounded-full hover:bg-pink-600 transition-colors"
+      onclick="moveCarousel(1)"
+      aria-label="Próximo produto"
+    >
+      →
+    </button>
+  </div>
+</div>
+
+<style>
+  .product-carousel-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .carousel-wrapper {
+    margin: 0 -1rem;
+  }
+  
+  .carousel-track {
+    will-change: transform;
+  }
+  
+  .carousel-slide {
+    flex-shrink: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  @media (min-width: 768px) {
+    .carousel-slide {
+      min-width: 50%;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .carousel-slide {
+      min-width: 33.333%;
+    }
+  }
+  
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>
+
+<script>
+  let currentIndex = 0;
+  const track = document.getElementById('carouselTrack');
+  const slides = document.querySelectorAll('.carousel-slide');
+  
+  function updateCarousel() {
+    const slideWidth = slides[0].offsetWidth;
+    track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+  }
+  
+  function moveCarousel(direction) {
+    const totalSlides = slides.length;
+    currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+    updateCarousel();
+  }
+  
+  // Inicializar carrossel
+  if (typeof window !== 'undefined') {
+    window.moveCarousel = moveCarousel;
+    
+    // Auto-rotate a cada 5 segundos
+    setInterval(() => moveCarousel(1), 5000);
+    
+    // Atualizar no redimensionamento
+    window.addEventListener('resize', updateCarousel);
+    
+    // Inicializar posição
+    setTimeout(updateCarousel, 100);
+  }
+</script>
