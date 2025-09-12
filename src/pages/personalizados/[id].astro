@@ -8,6 +8,18 @@ import { Image } from 'astro:assets';
 // Obter o parâmetro id da URL
 const { id } = Astro.params;
 
+                                                                                                                                                                                                                                                                                // Função obrigatória para rotas dinâmicas no Astro
+export function getStaticPaths() {
+  return [
+    { params: { id: 'kit-festa' } },
+    { params: { id: 'kit-festa-luxo' } },
+    { params: { id: 'kit-festa-premium' } },
+    { params: { id: 'caixas-personalizadas' } },
+    { params: { id: 'convites-personalizados' } },
+    { params: { id: 'toppers-personalizados' } }
+  ];
+}
+
 // Dados dos produtos personalizados
 const personalizadosProducts = [
   {
