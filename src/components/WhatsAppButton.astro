@@ -1,9 +1,20 @@
 ---
 // WhatsAppButton.astro - Floating WhatsApp button for easy customer contact
+import { getWhatsAppUrl } from '../config/whatsapp.js';
+
+// Props para permitir personalização por produto
+interface Props {
+  productId?: string;
+  category?: string;
+}
+
+const { productId, category } = Astro.props;
+
+const whatsappUrl = getWhatsAppUrl(productId, category);
 ---
 
 <a 
-  href="https://wa.me/5554981050464?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20da%20Maarte%20Ateliê."
+  href={whatsappUrl}
   target="_blank"
   rel="noopener noreferrer"
   class="fixed bottom-6 right-6 bg-green-500 text-white rounded-full p-3 shadow-lg hover:bg-green-600 transition-colors z-50 flex items-center justify-center"

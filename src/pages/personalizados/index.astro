@@ -4,6 +4,7 @@ import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import { getProductsByCategory } from '../../data/products.js';
+import { getWhatsAppUrl } from '../../config/whatsapp.js';
 
 // Obter produtos personalizados do arquivo centralizado
 const personalizadosProducts = getProductsByCategory('personalizados');
@@ -48,7 +49,7 @@ const personalizadosProducts = getProductsByCategory('personalizados');
         Podemos criar produtos personalizados especialmente para você. Entre em contato conosco para discutir suas ideias.
       </p>
       <a 
-        href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20um%20produto%20personalizado%20do%20Maarte%20Ateliê."
+        href={getWhatsAppUrl(null, 'personalizados')}
         target="_blank"
         rel="noopener noreferrer"
         class="inline-block bg-primary hover:bg-pink-500 text-white font-medium py-3 px-6 rounded-lg transition-colors"

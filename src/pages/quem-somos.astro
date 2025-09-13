@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
+import { getWhatsAppUrl } from '../config/whatsapp.js';
 ---
 
 <Layout title="Quem Somos | Maarte Ateliê" description="Conheça a história e os valores do Maarte Ateliê - Produtos personalizados e em crochê feitos com amor">
@@ -106,11 +107,14 @@ import WhatsAppButton from '../components/WhatsAppButton.astro';
       <p class="text-xl mb-8 max-w-2xl mx-auto">
         Tem alguma dúvida ou quer fazer um pedido personalizado? Entre em contato conosco pelo WhatsApp.
       </p>
-      <WhatsAppButton 
-        phoneNumber="5511999999999" 
-        message="Olá! Gostaria de saber mais sobre o Maarte Ateliê." 
-        className="bg-white text-green-500 hover:bg-gray-100 font-bold text-lg py-3 px-8"
-      />
+      <a 
+        href={getWhatsAppUrl(null, 'general')}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block bg-white text-green-500 hover:bg-gray-100 font-bold text-lg py-3 px-8 rounded-lg transition-colors"
+      >
+        Fale Conosco pelo WhatsApp
+      </a>
     </div>
   </section>
   

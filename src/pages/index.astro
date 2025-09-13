@@ -3,7 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
-import ProductCarousel from '../components/ProductCarousel.astro';
+import ProdutosDestaque from '../components/ProdutosDestaque.astro';
+import { getWhatsAppUrl } from '../config/whatsapp.js';
 ---
 
 <Layout title="Início" description="Maarte Ateliê - Produtos personalizados e em crochê feitos com amor e dedicação">
@@ -34,7 +35,7 @@ import ProductCarousel from '../components/ProductCarousel.astro';
   <section class="py-16 bg-white">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl font-bold text-center mb-12"></h2>
-      <ProductCarousel />
+      <ProdutosDestaque/>
     </div>
   </section>
   
@@ -117,11 +118,14 @@ import ProductCarousel from '../components/ProductCarousel.astro';
   </section>
   
   
-      <WhatsAppButton 
-        phoneNumber="5511999999999" 
-        message="Olá! Gostaria de saber mais sobre os produtos do Maarte Ateliê." 
-        className="bg-white text-green-500 hover:bg-gray-100 font-bold text-lg py-3 px-8"
-      />
+      <a 
+        href={getWhatsAppUrl(null, 'general')}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block bg-white text-green-500 hover:bg-gray-100 font-bold text-lg py-3 px-8 rounded-lg transition-colors"
+      >
+        Fale Conosco pelo WhatsApp
+      </a>
     </div>
   </section>
   

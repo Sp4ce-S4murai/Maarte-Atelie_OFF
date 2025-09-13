@@ -4,6 +4,7 @@ import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import { getProductsByCategory } from '../../data/products.js';
+import { getWhatsAppUrl } from '../../config/whatsapp.js';
 
 // Obter produtos de crochê do arquivo centralizado
 const crocheProducts = getProductsByCategory('croche');
@@ -73,7 +74,7 @@ const crocheProducts = getProductsByCategory('croche');
         Deseja um produto em crochê com cores ou tamanhos específicos? Entre em contato conosco para fazer uma encomenda personalizada.
       </p>
       <a 
-        href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20encomendar%20um%20produto%20em%20crochê%20personalizado%20do%20Maarte%20Ateliê."
+        href={getWhatsAppUrl(null, 'croche')}
         target="_blank"
         rel="noopener noreferrer"
         class="inline-block bg-primary hover:bg-pink-500 text-white font-medium py-3 px-6 rounded-lg transition-colors"
