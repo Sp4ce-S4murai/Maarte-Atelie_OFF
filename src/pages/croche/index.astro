@@ -3,58 +3,10 @@ import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 import ProductCard from '../../components/ProductCard.astro';
+import { getProductsByCategory } from '../../data/products.js';
 
-// Dados dos produtos de crochê
-const crocheProducts = [
-  {
-    id: 'bolsa-croche-pequena',
-    title: 'Bolsa de Crochê Pequena',
-    description: 'Bolsa de crochê pequena feita à mão com linha de alta qualidade.',
-    price: 89.90,
-    imageUrl: '/images/bolsa-croche-pequena.jpg', // Placeholder
-    category: 'croche'
-  },
-  {
-    id: 'bolsa-croche-media',
-    title: 'Bolsa de Crochê Média',
-    description: 'Bolsa de crochê de tamanho médio, ideal para uso diário.',
-    price: 129.90,
-    imageUrl: '/images/bolsa-croche-media.jpg', // Placeholder
-    category: 'croche'
-  },
-  {
-    id: 'bolsa-croche-grande',
-    title: 'Bolsa de Crochê Grande',
-    description: 'Bolsa de crochê grande com espaço para todos os seus itens essenciais.',
-    price: 169.90,
-    imageUrl: '/images/bolsa-croche-grande.jpg', // Placeholder
-    category: 'croche'
-  },
-  {
-    id: 'bolsa-praia-croche',
-    title: 'Bolsa de Praia em Crochê',
-    description: 'Bolsa de praia espaçosa feita em crochê com materiais resistentes à água.',
-    price: 149.90,
-    imageUrl: '/images/bolsa-praia-croche.jpg', // Placeholder
-    category: 'croche'
-  },
-  {
-    id: 'necessaire-croche',
-    title: 'Necessaire em Crochê',
-    description: 'Necessaire delicada feita em crochê para guardar seus itens pessoais.',
-    price: 59.90,
-    imageUrl: '/images/necessaire-croche.jpg', // Placeholder
-    category: 'croche'
-  },
-  {
-    id: 'porta-moedas-croche',
-    title: 'Porta-moedas em Crochê',
-    description: 'Pequeno porta-moedas em crochê, prático e elegante.',
-    price: 39.90,
-    imageUrl: '/images/porta-moedas-croche.jpg', // Placeholder
-    category: 'croche'
-  }
-];
+// Obter produtos de crochê do arquivo centralizado
+const crocheProducts = getProductsByCategory('croche');
 ---
 
 <Layout title="Crochê | Maarte Ateliê" description="Produtos em crochê feitos à mão com amor e dedicação - Maarte Ateliê">

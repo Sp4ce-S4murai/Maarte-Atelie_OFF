@@ -3,58 +3,10 @@ import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 import ProductCard from '../../components/ProductCard.astro';
+import { getProductsByCategory } from '../../data/products.js';
 
-// Dados dos produtos personalizados
-const personalizadosProducts = [
-  {
-    id: 'kit-festa',
-    title: 'Kit Festa',
-    description: 'Kit completo para festas com itens personalizados para decoração e lembrancinhas.',
-    price: 150.00,
-    imageUrl: '/images/kit-festa.jpg', // Placeholder
-    category: 'personalizados'
-  },
-  {
-    id: 'kit-festa-luxo',
-    title: 'Kit Festa Luxo',
-    description: 'Kit festa com acabamentos premium e itens adicionais para uma decoração sofisticada.',
-    price: 250.00,
-    imageUrl: '/images/kit-festa-luxo.jpg', // Placeholder
-    category: 'personalizados'
-  },
-  {
-    id: 'kit-festa-premium',
-    title: 'Kit Festa Premium',
-    description: 'Nossa opção mais completa de kit festa com itens exclusivos e personalizações especiais.',
-    price: 350.00,
-    imageUrl: '/images/kit-festa-premium.jpg', // Placeholder
-    category: 'personalizados'
-  },
-  {
-    id: 'caixas-personalizadas',
-    title: 'Caixas Personalizadas',
-    description: 'Caixas decorativas personalizadas para presentes ou lembrancinhas.',
-    price: 45.00,
-    imageUrl: '/images/caixas-personalizadas.jpg', // Placeholder
-    category: 'personalizados'
-  },
-  {
-    id: 'convites-personalizados',
-    title: 'Convites Personalizados',
-    description: 'Convites feitos sob medida para seu evento com design exclusivo.',
-    price: 3.50,
-    imageUrl: '/images/convites-personalizados.jpg', // Placeholder
-    category: 'personalizados'
-  },
-  {
-    id: 'toppers-personalizados',
-    title: 'Toppers Personalizados',
-    description: 'Toppers decorativos para bolos e cupcakes com temas variados.',
-    price: 25.00,
-    imageUrl: '/images/toppers-personalizados.jpg', // Placeholder
-    category: 'personalizados'
-  }
-];
+// Obter produtos personalizados do arquivo centralizado
+const personalizadosProducts = getProductsByCategory('personalizados');
 ---
 
 <Layout title="Personalizados | Maarte Ateliê" description="Produtos personalizados para festas e eventos especiais - Maarte Ateliê">

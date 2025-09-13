@@ -1,3 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+    --color-Maarte: #FF3C32;
+    --color-Rosa: #FF338A;
+    --color-Roxo: ##FC33FF;
+}
