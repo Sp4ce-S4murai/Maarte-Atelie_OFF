@@ -22,13 +22,14 @@ const formattedPrice = new Intl.NumberFormat('pt-BR', {
 <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
   <a href={`/${category}/${id}`} class="block">
     <div class="relative pb-[75%] overflow-hidden">
-      <Image 
+      <img 
         src={imageUrl} 
         alt={title} 
         class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 hover:scale-105"
         loading="lazy"
-        width={400}
-        height={300}
+        width="400"
+        height="300"
+        onerror="this.src='/404.png'"
       />
     </div>
     <div class="p-4">
@@ -46,4 +47,15 @@ const formattedPrice = new Intl.NumberFormat('pt-BR', {
       Ver detalhes
     </a>
   </div>
+</div>
+<div class="relative pb-[75%] overflow-hidden">
+  <img 
+    src={imageUrl} 
+    alt={title} 
+    class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+    loading="lazy"
+    width="400"
+    height="300"
+    onerror="this.src='/404.png'"
+  />
 </div>
