@@ -4,30 +4,17 @@ export const WHATSAPP_CONFIG = {
   // Número principal da empresa
   mainNumber: '5554981050464', // (54) 98105-0464
   
-  // Mensagens padrão para diferentes categorias
+  // Mensagens padrão para categorias ativas (crochê removido)
   defaultMessages: {
-    croche: 'Olá! Gostaria de saber mais sobre os produtos em crochê da Maarte Ateliê.',
     personalizados: 'Olá! Gostaria de saber mais sobre os produtos personalizados da Maarte Ateliê.',
     geral: 'Olá! Gostaria de saber mais sobre os produtos da Maarte Ateliê.'
   },
   
-  // Mensagens personalizadas por produto
+  // Mensagens personalizadas por produto (apenas personalizados)
   productMessages: {
-    // Produtos de Crochê
-    'bolsa-croche-pequena': 'Olá! Gostaria de saber mais sobre a Bolsa de Crochê Pequena da Maarte Ateliê.',
-    'bolsa-croche-media': 'Olá! Gostaria de saber mais sobre a Bolsa de Crochê Média da Maarte Ateliê.',
-    'bolsa-croche-grande': 'Olá! Gostaria de saber mais sobre a Bolsa de Crochê Grande da Maarte Ateliê.',
-    'bolsa-praia-croche': 'Olá! Gostaria de saber mais sobre a Bolsa de Praia em Crochê da Maarte Ateliê.',
-    'necessaire-croche': 'Olá! Gostaria de saber mais sobre a Necessaire em Crochê da Maarte Ateliê.',
-    'porta-moedas-croche': 'Olá! Gostaria de saber mais sobre o Porta-moedas em Crochê da Maarte Ateliê.',
-    
-    // Produtos Personalizados
-    'kit-festa': 'Olá! Gostaria de saber mais sobre o Kit Festa personalizado da Maarte Ateliê.',
-    'kit-festa-luxo': 'Olá! Gostaria de saber mais sobre o Kit Festa Luxo personalizado da Maarte Ateliê.',
-    'kit-festa-premium': 'Olá! Gostaria de saber mais sobre o Kit Festa Premium personalizado da Maarte Ateliê.',
-    'caixas-personalizadas': 'Olá! Gostaria de saber mais sobre as Caixas Personalizadas da Maarte Ateliê.',
-    'convites-personalizados': 'Olá! Gostaria de saber mais sobre os Convites Personalizados da Maarte Ateliê.',
-    'toppers-personalizados': 'Olá! Gostaria de saber mais sobre os Toppers Personalizados da Maarte Ateliê.'
+    'kit-classico': 'Olá! Gostaria de saber mais sobre o Kit Clássico (20 itens) da Maarte Ateliê.',
+    'kit-premium': 'Olá! Gostaria de saber mais sobre o Kit Premium (30 itens) da Maarte Ateliê.',
+    'kit-luxo': 'Olá! Gostaria de saber mais sobre o Kit Luxo da Maarte Ateliê.'
   }
 };
 

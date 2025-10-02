@@ -7,7 +7,7 @@ interface Props {
   description: string;
   price: number;
   imageUrl: string;
-  category: 'personalizados' | 'croche';
+  category: 'personalizados';
 }
 
 const { id, title, description, price, imageUrl, category } = Astro.props;
@@ -44,18 +44,7 @@ const formattedPrice = new Intl.NumberFormat('pt-BR', {
         href={`/${category}/${id}`} 
         class="inline-block hover:bg-rose-400 text-rose-400  hover:text-white font-medium py-2 px-4 rounded-lg border border-rose-400 transition-colors"
       >
-      Ver detalhes
-    </a>
+        Ver detalhes
+      </a>
+    </div>
   </div>
-</div>
-<div class="relative pb-[75%] overflow-hidden">
-  <img 
-    src={imageUrl} 
-    alt={title} 
-    class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-    loading="lazy"
-    width="400"
-    height="300"
-    onerror="this.src='/404.png'"
-  />
-</div>

@@ -7,7 +7,7 @@ import { getWhatsAppUrl } from '../config/whatsapp.js';
 import Promocoes from '../components/Promocoes.astro';
 ---
 
-<Layout title="Início" description="Maarte Ateliê - Produtos personalizados e em crochê feitos com amor e dedicação">
+<Layout title="Início | Maarte Ateliê" description="Kits personalizados para festas: Clássico, Premium e Luxo. Acabamento premium, alta qualidade e personalização completa.">
   <Navbar />
   
   <!-- Hero Section -->
@@ -17,13 +17,12 @@ import Promocoes from '../components/Promocoes.astro';
         Maarte Ateliê
       </h1>
       <p class="text-xl text-gray-700 max-w-2xl mb-8 animate-fade-in-delay">
-        Produtos personalizados e em crochê feitos com amor e dedicação para tornar seus momentos ainda mais especiais.
+        Kits personalizados para festas com alta qualidade, acabamento premium e personalização completa (nome e idade). Prontos para montar e encantar.
       </p>
-      <div class="flex flex-col sm:flex-row gap-4 animate-fade-in-delay-2">
-        <a href="/personalizados" class="bg-gray-100 hover:bg-rose-400 text-rose-400 hover:text-white font-medium py-3 px-6 rounded-lg border border-rose-400 transition-colors" >Ver Personalizados</a>
+      <div class="animate-fade-in-delay-2">
+        <a href="/personalizados" class="inline-block bg-white text-rose-500 hover:bg-gray-100 font-bold text-lg py-3 px-8 rounded-lg border border-rose-400 transition-colors">
+          Ver catálogo
         </a>
-        <a href="/croche" class="bg-gray-100 hover:bg-rose-400 text-rose-400 hover:text-white font-medium py-3 px-6 rounded-lg border border-rose-400 transition-colors">
-          Ver Crochê</a>
       </div>
     </div>
     <!-- Decorative elements -->
@@ -34,7 +33,7 @@ import Promocoes from '../components/Promocoes.astro';
   <!-- Produtos em destaque -->
   <section class="py-16 bg-white">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-12"></h2>
+      <h2 class="text-3xl font-bold text-center mb-12">Produtos em Destaque</h2>
       <ProdutosDestaque/>
     </div>
   </section>
@@ -42,7 +41,7 @@ import Promocoes from '../components/Promocoes.astro';
   <!-- promoções -->
     <section class="py-16 bg-white">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-12"></h2>
+      <h2 class="text-3xl font-bold text-center mb-12">Promoções</h2>
       <Promocoes/>
     </div>
   </section>
@@ -52,7 +51,7 @@ import Promocoes from '../components/Promocoes.astro';
     <div class="container mx-auto px-4">
       <h2 class="text-3xl font-bold text-center mb-12">Categorias em Destaque</h2>
       
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="grid grid-cols-1 gap-8">
         <!-- Card Personalizados -->
         <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group">
           <div class="relative h-64 overflow-hidden">
@@ -68,34 +67,14 @@ import Promocoes from '../components/Promocoes.astro';
           </div>
           <div class="p-6">
             <h3 class="text-xl font-bold mb-2">Kits Personalizados</h3>
-            <p class="text-gray-600 mb-4">Kits festa, kits festa luxo e kits festa premium para tornar sua celebração inesquecível.</p>
+            <p class="text-gray-600 mb-4">Catálogo oficial: Kit Clássico (20 itens), Kit Premium (30 itens) e Kit Luxo. Peças com papel offset 180g, impressão em alta resolução e aplique dupla camada.</p>
             <a href="/personalizados" class="inline-block hover:bg-rose-400 text-rose-400  hover:text-white font-medium py-2 px-4 rounded-lg border border-rose-400 transition-colors">
               Ver Produtos
             </a>
           </div>
         </div>
         
-        <!-- Card Crochê -->
-        <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group">
-          <div class="relative h-64 overflow-hidden">
-            <div class="absolute inset-0 bg-rose-100 flex items-center justify-center">
-              <!-- Placeholder para imagem -->
-              <div class="text-rose-300 text-6xl">🧶</div>
-            </div>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
-              <div class="p-6 w-full">
-                <h3 class="text-white text-2xl font-bold">Crochê</h3>
-              </div>
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2">Produtos em Crochê</h3>
-            <p class="text-gray-600 mb-4">Bolsas e acessórios em crochê feitos à mão com materiais de alta qualidade.</p>
-            <a href="/croche" class="inline-block hover:bg-rose-400 text-rose-400  hover:text-white font-medium py-2 px-4 rounded-lg border border-rose-400 transition-colors">
-              Ver Produtos
-            </a>
-          </div>
-        </div>
+        
       </div>
     </div>
   </section>
@@ -115,7 +94,7 @@ import Promocoes from '../components/Promocoes.astro';
         <div class="md:w-1/2">
           <h2 class="text-3xl font-bold mb-4">Quem Somos</h2>
           <p class="text-gray-700 mb-6">
-            O Maarte Ateliê nasceu da paixão por criar peças únicas e personalizadas. Cada produto é feito com dedicação e atenção aos detalhes, pensando sempre em proporcionar momentos especiais para nossos clientes.
+            Criamos peças únicas com acabamento premium e atenção aos detalhes, para tornar seus momentos especiais inesquecíveis. Conheça nossa história e processo artesanal.
           </p>
           <a href="/quem-somos" class="inline-block hover:bg-rose-400 text-rose-400  hover:text-white font-medium py-2 px-4 rounded-lg border border-rose-400 transition-colors">
             Conheça Nossa História
@@ -127,7 +106,7 @@ import Promocoes from '../components/Promocoes.astro';
   
   
       <a 
-        href={getWhatsAppUrl(null, 'general')}
+        href={getWhatsAppUrl(null, 'geral')}
         target="_blank"
         rel="noopener noreferrer"
         class="inline-block bg-white text-green-500 hover:bg-gray-100 font-bold text-lg py-3 px-8 rounded-lg transition-colors"
